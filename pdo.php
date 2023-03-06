@@ -1,6 +1,6 @@
 <?php
-    $dsn = 'mysql:host=localhost';
-
+    // $dsn = 'mysql:host=localhost'; (just connected database);
+    $dsn = 'mysql:dbname=mydb;host=localhost';
     $username = 'root';
     $password = '';
 
@@ -13,32 +13,6 @@
     }
     catch(PDOException $exception){
         echo $exception->getMessage();
-    }
-
-
-    // $connection = new mysqli('localhost','root','','userdb');
-    // if(! $connection){
-    //      var_dump($connection) ;
-    // }
-    // else echo 'connected !'. '<br><br>';
-   
-    // $link = mysqli_connect("localhost", "root", "",'userdb');
- 
-    // if($link === false){
-    //     die("ERROR: Could not connect. " . mysqli_connect_error());
-    // }
- 
-    // echo "Connect Successfully. Host info: " . mysqli_get_host_info($link).'<br><br>';
-
-
-    // $connection = new PDO('mysql:host=localhost','root','');
-    // var_dump($connection);
-
-
-
-
-    
-
-    
+    }    
    
 ?>
