@@ -1,7 +1,11 @@
 <?php
+    $dsn = 'mysql:host=localhost';
+
+    $username = 'root';
+    $password = '';
 
     try{
-        $connection = new PDO('mysql:host=localhost','root','');
+        $connection = new PDO($dsn,$username,$password);
 
         var_dump($connection);
 
