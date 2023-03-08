@@ -1,9 +1,13 @@
 <?php
     include_once 'connection.php';
     
-    $query = "INSERT INTO `users`(`username`,`email`,`password`) VALUES(`$username`,`$email`,`$password`)";
+    //pdo bind
+    $query = "INSERT INTO `users`(`username`,`email`,`password`) VALUES(?,?,?,?)";
 
-    $stmt = $connection->query($query);
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(0,$username);
+    $stmt->bindParam(1,$email);
+    $stmt->bindParam(2,$password);
     $stmt->execute();
 
     if($stmt===true){
