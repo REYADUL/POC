@@ -1,18 +1,28 @@
 <?php
-    // $dsn = 'mysql:host=localhost'; (just connected database);
-    $dsn = 'mysql:dbname=mydb;host=localhost';
-    $username = 'root';
-    $password = '';
+    include_once 'connection.php';
+    
+    $query = "INSERT INTO `users`(`username`,`email`,`password`) VALUES(`$username`,`$email`,`$password`)";
 
-    try{
-        $connection = new PDO($dsn,$username,$password);
+    $stmt = $connection->query($query);
+    $stmt->execute();
 
-        var_dump($connection);
-
-        $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    if($stmt===true){
+        $success = 'user insert succesfully';
     }
-    catch(PDOException $exception){
-        echo $exception->getMessage();
-    }    
+    else{
+        $errors='error occured';
+
+        echo $errors;
+    }
+
+
+
+
+
+
+
+
+
    
 ?>
+ 
