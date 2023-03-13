@@ -5,9 +5,18 @@ function show($stuff){
     echo "</pre>";
 }
 
-$URL=$_GET['url']??'home';
 
-show($_GET);
-$URL= explode("/",$URL);
-show($URL);
+function splitURL(){
+    $URL=$_GET['url']??'home';
+    $URL= explode("/",$URL);
+    return $URL;
+}
+
+function loadController(){
+    $URL=splitURL();
+    $filename="../application/controllers/".$URL[0].".php";
+}
+show(splitURL());
+
+
 
