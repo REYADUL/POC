@@ -14,9 +14,18 @@ function splitURL(){
 
 function loadController(){
     $URL=splitURL();
-    $filename="../application/controllers/".$URL[0].".php";
+    $filename="../application/controllers/".ucfirst($URL[0]).".php";
+    if(file_exists($filename)){
+        require $filename;
+    }
+    else{
+        $filename="../application/controllers/_404.php";
+        require $filename;
+        // echo "controller not found";
+    }
 }
-show(splitURL());
+// show(splitURL());
+loadController();
 
 
 
