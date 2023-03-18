@@ -3,7 +3,8 @@ class Home extends Controller
 {
     public function index(){
         // echo 'this is the home controller <br>pp';
-
+        $model = new Model;
+        $model->test();
         $this->view('home');
     }
 }
